@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de ciclo de vida de Vue</title>
+</head>
+<body>
+
+  <div id="app">
+    <!-- Interpolación de texto que muestra el valor de la propiedad `message` -->
+    <h1>{{ message }}</h1>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    Vue.createApp({
+      // Fase 1: Inicialización
+      // La instancia de Vue se crea y se configura
+      el: '#app',
+      data() {
+        return{
+        message: '¡Hola mundo!'
+      }},
+      // Fase 2: Montaje
+      // La instancia de Vue se monta en el DOM
+      mounted: function() {
+        console.log('La instancia de Vue se ha montado en el DOM');
+      },
+      // Fase 3: Actualización
+      // La instancia de Vue se actualiza si cambian sus propiedades o datos
+      updated: function() {
+        console.log('La instancia de Vue se ha actualizado');
+      },
+      // Fase 4: Destrucción
+      // La instancia de Vue se destruye
+      beforeDestroy: function() {
+        console.log('La instancia de Vue se va a destruir');
+      },
+      destroyed: function() {
+        console.log('La instancia de Vue se ha destruido');
+      }
+    }).mount('#app');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ejemplo de directivas en Vue.js</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- Interpolación de texto que muestra el valor de la propiedad `title` -->
+    <h1>{{ title }}</h1>
+
+    <!-- Directiva `v-if` que muestra el elemento `p` si `showMessage` es verdadero -->
+    <p v-if="showMessage">{{ message }}</p>
+
+    <!-- Directiva `v-for` que renderiza una lista de elementos `li` basados en `items` -->
+    <ul>
+      <li v-for="item in items" v-bind:key="item.id">
+        {{ item.text }}
+      </li>
+    </ul>
+
+    <!-- Directiva `v-model` que crea un enlace bidireccional entre el `input` y `inputValue` -->
+    <input v-model="inputValue" type="text">
+
+    <!-- Directiva `v-on` que agrega un controlador de eventos `click` al botón -->
+    <button v-on:click="addItem">Añadir item</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    Vue.createApp({
+      el: '#app',
+      data() {
+        // Propiedades de datos utilizadas en las directivas
+        return {
+          title: 'Lista de compras',
+          message: 'Esto es un mensaje',
+          showMessage: true,
+          items: [
+            { id: 1, text: 'Manzanas' },
+            { id: 2, text: 'Naranjas' },
+            { id: 3, text: 'Plátanos' }
+          ],
+          inputValue: ''
+        }
+      },
+      methods: {
+        // Método utilizado en la directiva `v-on:click`
+        addItem: function () {
+          if (this.inputValue) {
+            this.items.push({ id: Date.now(), text: this.inputValue });
+            this.inputValue = '';
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+
+</body>
+
+</html>

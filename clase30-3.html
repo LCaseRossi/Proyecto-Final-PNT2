@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de instancia de Vue</title>
+</head>
+<body>
+
+  <div id="app">
+    <p>{{ message }}</p>
+    <button @click="incrementCounter">Incrementar</button>
+    <p>Contador: {{ counter }}</p>
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    Vue.createApp({
+      // Opción "el": indica el elemento HTML al que se va a asociar la instancia de Vue
+      // Opción "data": define las variables de datos que se van a utilizar en la instancia de Vue
+      data() {
+        return{
+          message: "¡Hola mundo!",
+          counter: 0
+        }
+      },
+      // Método "methods": define las funciones que se pueden llamar en la instancia de Vue
+      methods: {
+        incrementCounter: function() {
+          this.counter++;
+          
+        }
+      }
+    }).mount('#app');
+  </script>
+
+
+
+</body>
+</html>
+    

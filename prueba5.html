@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de plantilla de Vue</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Uso de la plantilla `my-template` -->
+        <my-template @view="template" >
+            <h1>{{ title }}</h1>
+            <p>{{ content }}</p>
+        </my-template>
+      </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    // Definición de la plantilla `my-template`
+  
+
+    // Creación de una instancia de Vue que utiliza la plantilla
+    Vue.createApp({
+      el: '#app',
+      data() {
+        return {
+          title: 'Bienvenidos a mi sitio web',
+          content: 'Este es un ejemplo de plantilla de Vue'
+          
+        }
+      }
+      
+
+      
+    }).mount('#app');
+  </script>
+
+</body>
+</html>
